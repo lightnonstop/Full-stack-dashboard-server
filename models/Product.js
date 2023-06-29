@@ -9,5 +9,5 @@ const ProductSchema = new mongoose.Schema({
     supply: Number,
 }, { timestamps: true, });
 
-const User = mongoose.model('Product', ProductSchema);
+const Product = mongoose.model('Product', ProductSchema);
 export default Product;
