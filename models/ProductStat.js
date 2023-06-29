@@ -19,5 +19,5 @@ const ProductStatSchema = new mongoose.Schema({
     },
 }, { timestamps: true, });
 
-const User = mongoose.model('Product', ProductStatSchema);
+const User = mongoose.model('ProductStat', ProductStatSchema);
 export default Product;
