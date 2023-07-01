@@ -32,7 +32,7 @@ app.use(cors());
 app.use('/client', clientRoutes)
 app.use('/general', generalRoutes)
 app.use('/management', managementRoutes)
-app.use('/sales ', salesRoutes)
+app.use('/sales', salesRoutes)
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 8080;
