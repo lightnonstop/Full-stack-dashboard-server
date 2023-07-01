@@ -60,8 +60,21 @@ export const getTransactions = async (req, res) => {
 
 export const getCustomers = async (req, res) => {
     try{
-        const customers = await User.find({ role: 'user' }).select('-password')
-        res.status(200).json(customers);
+        const users = await User.find();
+
+        const mappedLocations = users.reduce((acc, { country }) => {
+            const countryISO3 = getCountryIso3(country)
+            if (!acc[countryISO3]){
+                acc[countryISO3] = 0;
+            }
+            acc[countryISO3]++; // simply - acc[countryISO3] = acc[countryISO3] + 1 
+            return acc;
+        }, {});
+
+        const formattedLocations = Object.entries(mappedLocations).map(
+          ([country, headCount]) => ({ id: country, value: headCount })
+        );
+        res.status(200).json(formattedLocations);
     } catch (error){
         res.status(404).json({ message: error.message })
     }
