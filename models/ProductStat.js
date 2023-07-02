@@ -17,6 +17,7 @@ const ProductStatSchema = new mongoose.Schema({
         totalSales: Number,
         totalUnits: Number,
     },
+    ]
 }, { timestamps: true, });
 
 const ProductStat = mongoose.model('ProductStat', ProductStatSchema);
